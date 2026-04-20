@@ -50,7 +50,7 @@ onMounted(() => {
     <div class="nav-actions">
       <button @click="toggleTheme" class="btn btn-icon btn-outline" type="button" aria-label="تبديل الوضع">
         <template v-if="theme === 'dark'">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
             class="lucide lucide-sun">
             <circle cx="12" cy="12" r="4" />
@@ -65,7 +65,7 @@ onMounted(() => {
           </svg>
         </template>
         <template v-else>
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
             class="lucide lucide-moon">
             <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />

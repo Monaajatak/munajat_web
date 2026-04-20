@@ -153,27 +153,31 @@
 }
 
 @media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 34px !important;
+        margin-bottom: 20px;
+    }
     .hero-actions {
         flex-direction: column;
-        gap: 12px;
+        gap: 14px;
         width: 100%;
-        padding: 0 10px;
+        padding: 0 5px;
     }
     .hero-actions .btn {
         width: 100%;
         justify-content: center;
+        padding: 16px 24px;
+        font-size: 16px;
+        font-weight: 800;
+    }
+    .hero-actions .btn:active {
+        transform: scale(0.98);
     }
     .hero-trust-bar {
         gap: 16px;
-        padding: 12px 20px;
+        padding: 16px 20px;
         width: 100%;
         justify-content: center;
-    }
-    .trust-count {
-        font-size: 17px;
-    }
-    .trust-label {
-        font-size: 11px;
     }
 }
 </style>
