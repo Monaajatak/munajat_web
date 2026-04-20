@@ -156,6 +156,12 @@
     .hero-actions {
         flex-direction: column;
         gap: 12px;
+        width: 100%;
+        padding: 0 10px;
+    }
+    .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
     }
     .hero-trust-bar {
         gap: 16px;
