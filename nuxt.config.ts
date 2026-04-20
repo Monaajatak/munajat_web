@@ -24,6 +24,11 @@ export default defineNuxtConfig({
     }
   },
 
+  experimental: {
+    viewTransition: true,
+    componentIslands: true
+  },
+
   css: [
     '~/assets/css/app.css'
   ]

@@ -1,9 +1,9 @@
 <!-- CtaSection.vue -->
 <template>
   <div class="cta-section reveal" id="download">
-      <p class="eyebrow" style="color: var(--primary-2);">ابدأ الآن</p>
+      <p class="eyebrow text-orange">ابدأ الآن</p>
       <h2 class="mb-4">حمّل التطبيق واشعر بالسكينة</h2>
-      <p class="mb-5" style="max-width: 600px; margin-inline: auto; opacity: 0.85;">
+      <p class="lead mb-5" style="max-width: 600px; margin-inline: auto;">
           تجربة عبادة متكاملة تعمل بدون إنترنت ومجانية بالكامل. اختر المتجر المفضل لديك للبدء في رحلتك الإيمانية.
       </p>
       <div class="store-cards" style="justify-content: center;">
@@ -37,7 +37,7 @@
       </div>
       <div class="mt-5">
           <a href="https://github.com/mosayyyed/monologue/releases/latest" target="_blank"
-              class="btn btn-outline btn-lg" style="border-radius: 50px;">
+              class="btn btn-direct-download btn-lg">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                   fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                   stroke-linejoin="round" style="margin-left: 8px;">
@@ -53,13 +53,56 @@
 
 <style scoped>
 .cta-section {
-    padding: 80px 20px;
+    padding: 60px 30px;
     text-align: center;
-    margin: 4rem 0;
+    margin: 4rem auto;
+    max-width: 1100px;
+    width: calc(100% - 48px);
     background: var(--cta-gradient);
     color: var(--cta-text);
     border-radius: 40px;
+    border: 1px solid rgba(var(--primary-rgb), 0.15);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2);
 }
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    right: -150px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(var(--brand-orange), 0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.text-orange {
+    color: var(--brand-orange) !important;
+}
+
+.lead {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 19px;
+}
+
+.btn-direct-download {
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.btn-direct-download:hover {
+    background: rgba(var(--brand-orange), 0.15);
+    border-color: var(--brand-orange);
+    color: var(--brand-orange);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
 .mb-4 { margin-bottom: 1.5rem; }
 .mb-5 { margin-bottom: 2.5rem; }
 .mt-5 { margin-top: 2.5rem; }

@@ -8,7 +8,7 @@
           <span>مُناجاتك — رفيقك الإيماني اليومي</span>
         </div>
         
-        <h1 class="reveal-delay-2">اجعل طاعتك أقرب مع <span class="text-gradient">مُناجاتك</span></h1>
+        <h1 class="reveal-delay-2">اجعل طاعتك أقرب مع <span class="text-orange">مُناجاتك</span></h1>
         
         <p class="lead reveal-delay-3">
           تجربة هادئة وسريعة تجمع لك القرآن الكريم، الأذكار، والتسبيح في تطبيق واحد. صُمم ليرافقك في كل خطوة نحو رضا الله، بدون إعلانات وبشكل مجاني تماماً.
@@ -70,8 +70,14 @@
 }
 
 .hero-content h1 {
-    font-size: clamp(40px, 5.5vw, 68px);
+    font-size: clamp(32px, 4.5vw, 54px);
     margin: 24px 0;
+}
+
+.text-orange {
+    color: var(--brand-orange);
+    background: none;
+    -webkit-text-fill-color: var(--brand-orange);
 }
 
 /* Trust Bar */

@@ -34,7 +34,7 @@ const setSlide = (index) => {
             <div class="phone-camera"></div>
           </div>
           <div class="phone-screen">
-            <img :src="screen.img" :alt="screen.title" class="screen-img">
+            <img :src="screen.img" :alt="screen.title" class="screen-img" loading="lazy" decoding="async">
           </div>
           <div class="phone-buttons">
             <div class="power-btn"></div>

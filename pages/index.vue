@@ -1,14 +1,14 @@
 <template>
   <div>
     <HeroSection />
-    <TrustBar />
-    <FeaturesSection />
-    <StorySection />
-    <TeamSection />
-    <ReviewsSection />
-    <CtaSection />
-    <FaqSection />
-    <ContactSection />
+    <LazyTrustBar />
+    <LazyFeaturesSection />
+    <LazyStorySection />
+    <LazyTeamSection />
+    <LazyReviewsSection />
+    <LazyCtaSection />
+    <LazyContactSection />
+    <LazyFaqSection />
   </div>
 </template>
 

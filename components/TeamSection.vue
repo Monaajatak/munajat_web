@@ -11,7 +11,7 @@
       <div class="member-card card-glass reveal-delay-2">
         <div class="member-avatar">
           <div class="avatar-ring"></div>
-          <img src="https://github.com/mahmoudmourad9.png" alt="Mahmoud Mourad" >
+          <img src="https://github.com/mahmoudmourad9.png" alt="Mahmoud Mourad" loading="lazy" decoding="async">
         </div>
         <div class="member-info">
           <h3>محمود مراد</h3>
@@ -32,7 +32,7 @@
       <div class="member-card card-glass reveal-delay-3">
         <div class="member-avatar">
           <div class="avatar-ring"></div>
-          <img src="https://github.com/mosayyyed.png" alt="Mohamed Elsayed">
+          <img src="https://github.com/mosayyyed.png" alt="Mohamed Elsayed" loading="lazy" decoding="async">
         </div>
         <div class="member-info">
           <h3>محمد السيد</h3>
