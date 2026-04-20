@@ -100,6 +100,9 @@
 .trust-item {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
 }
 
 .trust-count {
@@ -136,49 +139,57 @@
     .hero-grid {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 60px;
+        gap: 40px;
     }
     .hero-content {
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-align: center;
+    }
+    .hero-content h1 {
+        margin: 0 auto 24px;
+    }
+    .hero-content .lead {
+        margin: 0 auto 32px;
+        max-width: 600px;
     }
     .hero-actions {
         justify-content: center;
-        width: 100%;
     }
     .hero-trust-bar {
-        margin-inline: auto;
+        margin: 0 auto;
     }
 }
 
 @media (max-width: 480px) {
     .hero-content h1 {
-        font-size: 34px !important;
-        margin-bottom: 20px;
+        font-size: 32px !important;
+    }
+    .hero-content .lead {
+        font-size: 15px;
+        max-width: 100%;
+        padding: 0 10px;
     }
     .hero-actions {
         flex-direction: column;
-        gap: 14px;
         width: 100%;
-        padding: 0 5px;
+        gap: 12px;
     }
     .hero-actions .btn {
         width: 100% !important;
-        justify-content: center;
-        padding: 16px 24px;
+        padding: 16px;
         font-size: 16px;
-        font-weight: 800;
-        gap: 12px;
-    }
-    .hero-actions .btn:active {
-        transform: scale(0.98);
+        gap: 10px;
     }
     .hero-trust-bar {
-        gap: 16px;
-        padding: 16px 20px;
+        grid-template-columns: repeat(3, 1fr);
+        display: grid;
         width: 100%;
-        justify-content: center;
+        padding: 16px 10px;
+        gap: 10px;
     }
+    .trust-divider { display: none; }
+    .trust-label { font-size: 10px; white-space: normal; }
 }
 </style>
