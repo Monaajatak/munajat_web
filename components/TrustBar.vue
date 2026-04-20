@@ -1,8 +1,8 @@
 <script setup>
 const counters = [
-  { target: 20, suffix: 'M+', label: 'آذان مسموع' },
-  { target: 50, suffix: 'K+', label: 'مستخدم نشط' },
-  { target: 100, suffix: '%', label: 'بدون إعلانات' }
+  { target: 150, suffix: '+', label: 'تلاوة عذبة' },
+  { target: 2000, suffix: '+', label: 'تحميل للتطبيق' },
+  { target: 100, suffix: '%', label: 'مجاني للأبد' }
 ]
 
 const animatedValues = reactive(counters.map(() => 0))

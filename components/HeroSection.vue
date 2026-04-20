@@ -24,8 +24,8 @@
 
         <div class="hero-trust-bar card card-glass reveal-delay-5">
            <div class="trust-item">
-              <span class="trust-count">+50K</span>
-              <span class="trust-label">تحميل</span>
+              <span class="trust-count">2000+</span>
+              <span class="trust-label">تحميل التطبيق</span>
            </div>
            <div class="trust-divider"></div>
            <div class="trust-item">
