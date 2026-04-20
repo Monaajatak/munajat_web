@@ -425,11 +425,12 @@ h6 {
 }
 
 .btn-icon {
-    width: 40px;
-    height: 40px;
-    padding: 0;
+    width: 42px;
+    height: 42px;
+    padding: 0 !important;
     border-radius: 50%;
     font-size: 18px;
+    flex-shrink: 0; /* Prevent elliptical shape */
 }
 
 /* --- Cards --- */
@@ -1778,14 +1779,20 @@ h6 {
     }
 
     .menu-toggle {
-        display: block;
-        width: 40px;
-        height: 40px;
         display: flex;
+        width: 42px;
+        height: 42px;
         align-items: center;
         justify-content: center;
-        background: rgba(var(--primary-rgb), 0.05);
-        border-radius: 12px;
+        background: rgba(var(--primary-rgb), 0.05); /* Same as btn-icon */
+        border-radius: 50%; /* Circle for consistency */
+        border: var(--border);
+        flex-shrink: 0;
+    }
+
+    .nav-actions {
+        gap: 12px;
+        flex-direction: row-reverse; /* Ensure actions are ordered nicely */
     }
 
     .nav-actions .btn:not(.btn-icon) {
@@ -1876,6 +1883,23 @@ h6 {
     .brand img {
         width: 32px;
         height: 32px;
+    }
+
+    [data-theme="dark"] .brand-name {
+        color: var(--primary-2);
+    }
+
+    /* Hide kicker on small mobile to save space */
+    @media (max-width: 400px) {
+        .brand-kicker {
+            display: none;
+        }
+        .nav {
+            padding: 10px 16px;
+        }
+        .nav-actions {
+            gap: 8px;
+        }
     }
 
     .store-badge {
