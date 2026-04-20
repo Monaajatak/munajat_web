@@ -18,18 +18,21 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     ->registered(function (Application $app) {
         // Handle Vercel's read-only filesystem
-        if (env('VERCEL')) {
+        if (isset($_SERVER['VERCEL']) || isset($_ENV['VERCEL'])) {
             $app->useStoragePath('/tmp/storage');
             
-            // Ensure necessary directories exist in /tmp
-            if (!is_dir('/tmp/storage/framework/views')) {
-                mkdir('/tmp/storage/framework/views', 0755, true);
-            }
-            if (!is_dir('/tmp/storage/framework/cache')) {
-                mkdir('/tmp/storage/framework/cache', 0755, true);
-            }
-            if (!is_dir('/tmp/storage/framework/sessions')) {
-                mkdir('/tmp/storage/framework/sessions', 0755, true);
+            // Ensure necessary subdirectories exist in /tmp
+            $dirs = [
+                '/tmp/storage/framework/views',
+                '/tmp/storage/framework/cache',
+                '/tmp/storage/framework/sessions',
+                '/tmp/storage/logs',
+            ];
+
+            foreach ($dirs as $dir) {
+                if (!is_dir($dir)) {
+                    mkdir($dir, 0755, true);
+                }
             }
         }
     })
