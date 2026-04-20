@@ -72,6 +72,13 @@
 .hero-content h1 {
     font-size: clamp(32px, 4.5vw, 54px);
     margin: 24px 0;
+    line-height: 1.2;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 48px;
 }
 
 .text-orange {
@@ -86,7 +93,6 @@
     align-items: center;
     gap: 24px;
     padding: 16px 32px;
-    margin-top: 48px;
     width: fit-content;
     border-radius: 20px;
 }
@@ -120,9 +126,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
+    .hero {
+        padding: 40px 0 60px;
+    }
     .hero-grid {
         grid-template-columns: 1fr;
         text-align: center;
@@ -133,8 +143,31 @@
         flex-direction: column;
         align-items: center;
     }
+    .hero-actions {
+        justify-content: center;
+        width: 100%;
+    }
     .hero-trust-bar {
         margin-inline: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .hero-trust-bar {
+        gap: 16px;
+        padding: 12px 20px;
+        width: 100%;
+        justify-content: center;
+    }
+    .trust-count {
+        font-size: 17px;
+    }
+    .trust-label {
+        font-size: 11px;
     }
 }
 </style>

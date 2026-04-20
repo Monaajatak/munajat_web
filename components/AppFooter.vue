@@ -4,10 +4,11 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <NuxtLink to="/" class="brand">
-            <img src="/images/Icon_White_SVG.svg" alt="شعار مُناجاتك" width="32" height="32">
+            <img src="/images/Icon_Teal_SVG.svg" alt="شعار مُناجاتك" width="32" height="32" class="logo-light">
+            <img src="/images/Icon_White_SVG.svg" alt="شعار مُناجاتك" width="32" height="32" class="logo-dark">
             <strong class="brand-name">مُناجاتك</strong>
           </NuxtLink>
-          <p style="margin-top:12px;font-size:14px;color:var(--text-secondary);">رفيق الطاعة اليومي في رحلتك الإيمانية. تطبيق مجاني، خالي من الإعلانات، ويحترم خصوصيتك.</p>
+          <p class="footer-desc">رفيق الطاعة اليومي في رحلتك الإيمانية. تطبيق مجاني، خالي من الإعلانات، ويحترم خصوصيتك.</p>
         </div>
         <div class="footer-col">
           <h4>روابط سريعة</h4>
@@ -27,11 +28,15 @@
           <a href="https://t.me/monaajatak" target="_blank">تليجرام</a>
         </div>
       </div>
-      <div class="footer-bottom" style="flex-direction: column; gap: 12px; align-items: center; text-align: center;">
-        <p>تم التطوير بكل 
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#ef4444" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-inline" style="margin:0 4px;"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-          بواسطة فريق <strong style="color:var(--primary);">مُناجاتك</strong></p>
-        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;">
+      <div class="footer-bottom">
+        <div class="credits">
+          <p>
+            تم التطوير بكل 
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#ef4444" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-heart"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            بواسطة فريق <strong class="brand-highlight">مُناجاتك</strong>
+          </p>
+        </div>
+        <div class="legal-social">
           <span>© {{ currentYear }} مُناجاتك — جميع الحقوق محفوظة</span>
           <div class="footer-social">
             <a href="https://facebook.com/Monaajatak" target="_blank" aria-label="Facebook">
@@ -43,12 +48,6 @@
             <a href="https://tiktok.com/@monaajatak" target="_blank" aria-label="TikTok">
                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
             </a>
-            <a href="https://wa.me/201093717869" target="_blank" aria-label="WhatsApp">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </a>
-            <a href="https://t.me/monaajatak" target="_blank" aria-label="Telegram">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            </a>
           </div>
         </div>
       </div>
@@ -59,3 +58,49 @@
 <script setup>
 const currentYear = new Date().getFullYear();
 </script>
+
+<style scoped>
+.footer-desc {
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 320px;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+    padding-top: 32px;
+    border-top: var(--border);
+}
+
+.icon-heart {
+    display: inline;
+    margin: 0 4px;
+    vertical-align: middle;
+}
+
+.brand-highlight {
+    color: var(--primary);
+}
+
+.legal-social {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+@media (max-width: 768px) {
+    .footer-desc {
+        max-width: 100%;
+    }
+}
+</style>
