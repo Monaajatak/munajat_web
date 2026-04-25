@@ -2,7 +2,7 @@
     "meta": {
         "version": 3,
         "locale": "ar",
-        "last_updated": "2026-02-10",
+        "last_updated": "2026-04-25",
         "effective_date": "2026-02-10",
         "cache_ttl_hours": 24,
         "force_update": false
@@ -12,7 +12,7 @@
         "intro": "تطبيق مُنَاجَاتُكَ هو تطبيق ديني يهدف إلى تقريبك من الله عز وجل من خلال الأذكار والأدعية والقرآن الكريم ومواقيت الصلاة. نحترم خصوصيتك ولا نجمع أي بيانات شخصية.",
         "ui": {
             "show_last_updated": true,
-            "show_effective_date": true,
+            "show_effective_date": false,
             "show_dividers": true,
             "text_align": "start"
         },
