@@ -12,7 +12,7 @@
         "intro": "تطبيق مُنَاجَاتُكَ هو تطبيق ديني يهدف إلى تقريبك من الله عز وجل من خلال الأذكار والأدعية والقرآن الكريم ومواقيت الصلاة. نحترم خصوصيتك ولا نجمع أي بيانات شخصية.",
         "ui": {
             "show_last_updated": true,
-            "show_effective_date": false,
+            "show_effective_date": true,
             "show_dividers": true,
             "text_align": "start"
         },
