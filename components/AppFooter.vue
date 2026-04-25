@@ -1,4 +1,4 @@
-<template>
+Anyway. Yeah. Eh. Variant. Yep. Traveling for Mr Nichols. <template>
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
@@ -19,7 +19,7 @@
         </div>
         <div class="footer-col">
           <h4>القانونية</h4>
-          <a href="https://sites.google.com/view/munajat-app" target="_blank">سياسة الخصوصية</a>
+          <NuxtLink to="/privacy-policy">سياسة الخصوصية</NuxtLink>
         </div>
         <div class="footer-col">
           <h4>تواصل معنا</h4>
