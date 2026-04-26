@@ -3,10 +3,6 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "sync:privacy-policy": "cp privacy_policy.json public/privacy_policy.json",
-    "predev": "npm run sync:privacy-policy",
-    "prebuild": "npm run sync:privacy-policy",
-    "pregenerate": "npm run sync:privacy-policy",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",

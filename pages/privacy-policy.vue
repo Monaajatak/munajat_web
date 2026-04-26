@@ -1,15 +1,49 @@
 <script setup lang="ts">
-import policyDocument from '~/privacy_policy.json'
+const fallbackPolicyDocument = {
+  meta: {
+    version: 3,
+    locale: 'ar',
+    last_updated: '',
+    effective_date: '',
+    cache_ttl_hours: 24,
+    force_update: false
+  },
+  data: {
+    title: 'سياسة الخصوصية',
+    intro: '',
+    ui: {
+      show_last_updated: true,
+      show_effective_date: false,
+      show_dividers: true,
+      text_align: 'start'
+    },
+    sections: [],
+    footer: {
+      show_contact: false,
+      contact_email: '',
+      note: ''
+    }
+  }
+}
 
-const policyMeta = policyDocument.meta
-const policyData = policyDocument.data
+const { data: policyDocument } = await useFetch('/api/privacy-policy', {
+  default: () => fallbackPolicyDocument
+})
+
+const policyMeta = computed(() => {
+  return policyDocument.value?.meta ?? fallbackPolicyDocument.meta
+})
+
+const policyData = computed(() => {
+  return policyDocument.value?.data ?? fallbackPolicyDocument.data
+})
 
 const orderedSections = computed(() => {
-  return [...policyData.sections].sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+  return [...policyData.value.sections].sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
 })
 
 const textAlignClass = computed(() => {
-  if (policyData.ui?.text_align === 'center') {
+  if (policyData.value.ui?.text_align === 'center') {
     return 'align-center'
   }
 
@@ -32,15 +66,15 @@ const formatDate = (value?: string) => {
   }).format(date)
 }
 
-useHead({
-  title: `${policyData.title} | مُناجاتك`,
+useHead(() => ({
+  title: `${policyData.value.title} | مُناجاتك`,
   meta: [
     {
       name: 'description',
-      content: policyData.intro
+      content: policyData.value.intro || 'سياسة الخصوصية لتطبيق مُناجاتك'
     }
   ]
-})
+}))
 </script>
 
 <template>
