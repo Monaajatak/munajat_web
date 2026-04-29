@@ -2,6 +2,29 @@
 const cursorDot = ref(null)
 const cursorOutline = ref(null)
 const isPointerFine = ref(true)
+const route = useRoute()
+let revealObserver = null
+
+const setupReveal = () => {
+  if (revealObserver) {
+    revealObserver.disconnect()
+  }
+
+  revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active')
+        revealObserver?.unobserve(entry.target)
+      }
+    })
+  }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" })
+
+  document.querySelectorAll('.reveal').forEach(el => {
+    if (!el.classList.contains('active')) {
+      revealObserver.observe(el)
+    }
+  })
+}
 
 onMounted(() => {
   const pointerQuery = window.matchMedia?.('(pointer: fine)')
@@ -44,18 +67,13 @@ onMounted(() => {
     })
   })
 
-  // --- Scroll Reveal Logic ---
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active')
-        observer.unobserve(entry.target)
-      }
-    })
-  }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" })
+  setupReveal()
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+})
 
+watch(() => route.fullPath, async () => {
+  await nextTick()
+  setupReveal()
 })
 </script>
 
