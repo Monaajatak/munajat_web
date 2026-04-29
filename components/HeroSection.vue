@@ -8,7 +8,7 @@
           <span>مُناجاتك — رفيقك الإيماني اليومي</span>
         </div>
         
-        <h1 class="reveal-delay-2">اجعل طاعتك أقرب مع <span class="text-orange">مُناجاتك</span></h1>
+        <h1 class="reveal-delay-2">اجعل طاعتك أقرب مع <span class="text-teal">مُناجاتك</span></h1>
         
         <p class="lead reveal-delay-3">
           تجربة هادئة وسريعة تجمع لك القرآن الكريم، الأذكار، والتسبيح في تطبيق واحد. صُمم ليرافقك في كل خطوة نحو رضا الله، بدون إعلانات وبشكل مجاني تماماً.
@@ -49,10 +49,10 @@
 
 <style scoped>
 .hero {
-    min-height: 90vh;
+    min-height: 88vh;
     display: flex;
     align-items: center;
-    padding: 80px 0;
+    padding: 72px 0 84px;
 }
 
 .hero-grid {
@@ -71,20 +71,21 @@
 
 .hero-content h1 {
     font-size: clamp(32px, 4.5vw, 54px);
-    margin: 24px 0;
+    margin: 20px 0 18px;
     line-height: 1.2;
 }
 
 .hero-actions {
     display: flex;
     gap: 16px;
-    margin-bottom: 48px;
+    margin-bottom: 36px;
 }
 
-.text-orange {
-    color: var(--brand-orange);
+/* Brand emphasis aligned to mobile teal identity (no orange in hero). */
+.text-teal {
+    color: var(--primary);
     background: none;
-    -webkit-text-fill-color: var(--brand-orange);
+    -webkit-text-fill-color: var(--primary);
 }
 
 /* Trust Bar */
@@ -92,7 +93,7 @@
     display: flex;
     align-items: center;
     gap: 24px;
-    padding: 16px 32px;
+    padding: 14px 26px;
     width: fit-content;
     border-radius: 20px;
 }
@@ -134,7 +135,7 @@
 
 @media (max-width: 1024px) {
     .hero {
-        padding: 40px 0 60px;
+        padding: 36px 0 56px;
     }
     .hero-grid {
         grid-template-columns: 1fr;
@@ -163,13 +164,17 @@
 }
 
 @media (max-width: 480px) {
+    .hero {
+        min-height: auto;
+        padding: 48px 0 36px;
+    }
     .hero-content h1 {
         font-size: 32px !important;
     }
     .hero-content .lead {
         font-size: 15px;
         max-width: 100%;
-        padding: 0 10px;
+        padding: 0 6px;
     }
     .hero-actions {
         flex-direction: column;
@@ -183,13 +188,23 @@
         gap: 10px;
     }
     .hero-trust-bar {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         display: grid;
         width: 100%;
-        padding: 16px 10px;
-        gap: 10px;
+        padding: 12px 10px;
+        gap: 8px;
+    }
+    .hero-trust-bar .trust-item:last-child {
+        grid-column: 1 / -1;
     }
     .trust-divider { display: none; }
     .trust-label { font-size: 10px; white-space: normal; }
+    .trust-count { font-size: 17px; }
+}
+
+@media (max-width: 360px) {
+    .hero {
+        padding: 48px 0 36px;
+    }
 }
 </style>

@@ -6,24 +6,24 @@
     </div>
 
     <div class="vision-container reveal-delay-3">
-      <div class="vision-card card-glass">
-        <div class="quote-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
-        </div>
-        
-        <div class="vision-content">
+      <div class="cta-box card-glass">
+        <div class="cta-content">
+          <h3>خُذ لحظتك الآن.. دعاءٌ يقرّبك ويطمئن قلبك</h3>
           <p>
-            "لم أبني هذا التطبيق ليُكتب سطرًا في سيرتي الذاتية، بل ليكون <strong>رفيقًا مخلصًا</strong> لكل مسلم. 
-            بدأت الفكرة برغبة في ترك <strong>صدقة جارية</strong> حقيقية، تطبيق نظيف من الإعلانات، يحفظ خصوصيتك، ويجمعك بالله في خلوتك. 
-            هو إهداء لكل من علمني حرفًا، ولكل من رحل عن دنيانا ولم يجد من يتصدق عنه."
+            تطبيق مناجاة صُمّم ليكون رفيقك اليومي: بلا إعلانات، باحترام كامل لخصوصيتك،
+            وبروحٍ تجمعك بالله في خلوتك. ابدأ اليوم، وشارك الأثر مع من تحب.
           </p>
         </div>
 
-        <div class="vision-footer">
-          <div class="author-info">
-            <span class="author-name">محمود مراد</span>
-            <div class="author-line"></div>
-          </div>
+        <div class="cta-actions">
+          <a class="cta-btn primary" href="#download">حمّل التطبيق الآن</a>
+          <a class="cta-btn secondary" href="#features">اكتشف المميزات</a>
+        </div>
+
+        <div class="cta-highlights">
+          <span>مجاني بالكامل</span>
+          <span>بدون إعلانات</span>
+          <span>خصوصية مضمونة</span>
         </div>
       </div>
     </div>
@@ -51,68 +51,101 @@
 }
 
 .vision-container {
-    max-width: 900px;
-    margin: 0 auto;
+  max-width: 980px;
+  margin: 0 auto;
 }
 
-.vision-card {
-    padding: 60px 80px;
-    border-radius: 40px;
-    position: relative;
-    border: 1px solid rgba(var(--primary-rgb), 0.08);
+.cta-box {
+  padding: 60px 70px;
+  border-radius: 30px;
+  position: relative;
+  background: linear-gradient(140deg, rgba(var(--primary-rgb), 0.08), rgba(var(--primary-rgb), 0.02));
+  border: 1px solid rgba(var(--primary-rgb), 0.16);
+  box-shadow: var(--shadow-sm);
 }
 
-.quote-icon {
-    margin-bottom: 40px;
-    color: rgba(var(--primary-rgb), 0.2);
-    display: flex;
-    justify-content: center;
+[data-theme="dark"] .cta-box {
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
-.vision-content p {
-    font-size: 20px;
-    line-height: 2;
-    color: var(--text);
-    font-weight: 500;
-    text-align: justify;
-    text-align-last: center;
-    direction: rtl;
+.cta-content h3 {
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 16px;
+  direction: rtl;
 }
 
-.vision-content strong {
-    color: var(--primary);
-    font-weight: 800;
+.cta-content p {
+  font-size: 18px;
+  line-height: 1.9;
+  color: var(--muted);
+  margin: 0 auto 28px;
+  max-width: 720px;
+  direction: rtl;
 }
 
-.vision-footer {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
+.cta-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.author-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
+.cta-btn {
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
-.author-name {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--muted);
+.cta-btn.primary {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(var(--primary-rgb), 0.25);
 }
 
-.author-line {
-    width: 40px;
-    height: 2px;
-    background: var(--primary);
-    border-radius: 2px;
+.cta-btn.secondary {
+  background: rgba(var(--primary-rgb), 0.10);
+  color: var(--text);
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+}
+
+.cta-highlights {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.cta-highlights span {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(var(--primary-rgb), 0.08);
 }
 
 @media (max-width: 768px) {
     .story-section { padding: 60px 0; }
-    .vision-card { padding: 40px 30px; border-radius: 30px; }
-    .vision-content p { font-size: 17px; line-height: 1.8; }
+    .cta-box { padding: 40px 28px; border-radius: 26px; }
+    .cta-content p { font-size: 16px; line-height: 1.8; }
+}
+
+@media (max-width: 480px) {
+  .story-section { padding: 48px 0; }
+  .section-header h2 { font-size: 26px; }
+  .section-header p { font-size: 15px; margin-bottom: 40px; }
+  .cta-box { padding: 28px 20px; }
+  .cta-content h3 { font-size: 22px; }
+  .cta-content p { font-size: 15px; line-height: 1.7; }
+  .cta-btn { width: 100%; text-align: center; }
 }
 </style>

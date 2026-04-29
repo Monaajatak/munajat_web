@@ -36,7 +36,7 @@
 
       <!-- 04: Sebha -->
       <div class="feature-card reveal-delay-4">
-        <div class="feature-icon surface">
+        <div class="feature-icon tasbih-icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
         </div>
         <h3>سبحة إلكترونية</h3>
@@ -45,7 +45,7 @@
 
       <!-- 05: Qibla -->
       <div class="feature-card reveal-delay-5">
-        <div class="feature-icon" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">
+        <div class="feature-icon qibla-icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
         </div>
         <h3>بوصلة القبلة</h3>
@@ -54,7 +54,7 @@
 
       <!-- 06: Dark Mode -->
       <div class="feature-card reveal-delay-6">
-        <div class="feature-icon" style="background: rgba(100, 116, 139, 0.1); color: #64748b;">
+        <div class="feature-icon notify-icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6.36 6.36 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
         </div>
         <h3>الوضع الليلي</h3>

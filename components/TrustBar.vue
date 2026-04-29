@@ -87,4 +87,19 @@ function animateValue(index, start, end, duration) {
         font-size: 2rem;
     }
 }
+
+@media (max-width: 480px) {
+  .trust-bar-section {
+    padding: 1.5rem 0;
+    margin-bottom: 3rem;
+  }
+
+  .counter-val {
+    font-size: 1.8rem;
+  }
+
+  .label {
+    font-size: 0.85rem;
+  }
+}
 </style>
