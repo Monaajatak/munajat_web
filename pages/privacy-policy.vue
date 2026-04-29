@@ -42,14 +42,6 @@ const orderedSections = computed(() => {
   return [...policyData.value.sections].sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
 })
 
-const textAlignClass = computed(() => {
-  if (policyData.value.ui?.text_align === 'center') {
-    return 'align-center'
-  }
-
-  return 'align-start'
-})
-
 const formatDate = (value?: string) => {
   if (!value) {
     return ''
@@ -66,6 +58,10 @@ const formatDate = (value?: string) => {
   }).format(date)
 }
 
+const formatIndex = (value: number) => {
+  return (value + 1).toLocaleString('ar-EG')
+}
+
 useHead(() => ({
   title: `${policyData.value.title} | مُناجاتك`,
   meta: [
@@ -80,23 +76,33 @@ useHead(() => ({
 <template>
   <section class="section privacy-page">
     <div class="container privacy-container">
-      <div class="privacy-header" :class="textAlignClass">
-        <NuxtLink to="/" class="back-link">العودة إلى الرئيسية</NuxtLink>
-        <h1>{{ policyData.title }}</h1>
-        <p class="intro">{{ policyData.intro }}</p>
+      <section class="policy-hero">
+        <div class="hero-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3l7 4v5c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V7l7-4z" />
+            <path d="M12 11v4" />
+            <path d="M12 8h.01" />
+          </svg>
+        </div>
+        <div class="hero-content">
+          <h2>{{ policyData.title }}</h2>
+          <p>{{ policyData.intro }}</p>
+          <p v-if="policyData.ui?.show_last_updated" class="meta-line">
+            آخر تحديث: {{ formatDate(policyMeta.last_updated) }}
+          </p>
+          <p v-if="policyData.ui?.show_effective_date" class="meta-line">
+            تاريخ السريان: {{ formatDate(policyMeta.effective_date) }}
+          </p>
+        </div>
+      </section>
 
-        <p v-if="policyData.ui?.show_last_updated" class="meta-line">
-          آخر تحديث: {{ formatDate(policyMeta.last_updated) }}
-        </p>
-        <p v-if="policyData.ui?.show_effective_date" class="meta-line">
-          تاريخ السريان: {{ formatDate(policyMeta.effective_date) }}
-        </p>
-      </div>
-
-      <article class="privacy-content card" :class="textAlignClass">
+      <article class="privacy-content">
         <template v-for="(section, index) in orderedSections" :key="section.id">
           <section class="policy-block" :class="{ 'highlighted': section.highlight }">
-            <h2>{{ section.title }}</h2>
+            <div class="block-header">
+              <span class="block-badge">{{ formatIndex(index) }}</span>
+              <h2>{{ section.title }}</h2>
+            </div>
 
             <p v-if="section.type === 'text'">{{ section.content }}</p>
 
@@ -112,7 +118,7 @@ useHead(() => ({
         </template>
       </article>
 
-      <section v-if="policyData.footer?.note || policyData.footer?.show_contact" class="policy-footer card" :class="textAlignClass">
+      <section v-if="policyData.footer?.note || policyData.footer?.show_contact" class="policy-footer">
         <p v-if="policyData.footer?.note">{{ policyData.footer.note }}</p>
         <a v-if="policyData.footer?.show_contact" :href="`mailto:${policyData.footer.contact_email}`">
           {{ policyData.footer.contact_email }}
@@ -124,66 +130,103 @@ useHead(() => ({
 
 <style scoped>
 .privacy-page {
-  padding-top: 40px;
+  padding-top: 24px;
 }
 
 .privacy-container {
-  max-width: 900px;
+  max-width: 920px;
   display: grid;
-  gap: 24px;
+  gap: 22px;
+  text-align: right;
 }
 
-.privacy-header {
+.policy-hero {
   display: grid;
-  gap: 10px;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  align-items: center;
+  background: linear-gradient(140deg, rgba(var(--primary-rgb), 0.08), rgba(var(--primary-rgb), 0.02));
+  border: 1px solid rgba(var(--primary-rgb), 0.18);
+  border-radius: 26px;
+  padding: 24px 26px;
+  box-shadow: var(--shadow-sm);
 }
 
-.back-link {
+.hero-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 22px;
+  display: grid;
+  place-items: center;
+  background: rgba(var(--primary-rgb), 0.12);
   color: var(--primary);
-  font-weight: 700;
-  width: fit-content;
 }
 
-.back-link:hover {
-  color: var(--primary-dark);
+.hero-content {
+  display: grid;
+  gap: 8px;
+  text-align: right;
 }
 
-h1 {
-  font-size: clamp(30px, 4vw, 44px);
+.hero-content h2 {
+  margin: 0;
+  font-size: 24px;
+  color: var(--text);
 }
 
-.intro {
+.hero-content p {
+  margin: 0;
   color: var(--text-secondary);
   line-height: 1.9;
 }
 
 .meta-line {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--muted);
 }
 
 .privacy-content,
 .policy-footer {
-  padding: 28px;
+  padding: 24px;
+  border-radius: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-xs);
 }
 
 .policy-block {
   display: grid;
   gap: 12px;
+  text-align: start;
+}
+
+.block-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.block-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(var(--primary-rgb), 0.15);
+  color: var(--primary);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 14px;
+  flex-shrink: 0;
 }
 
 .policy-block h2 {
-  font-size: 22px;
+  font-size: 20px;
+  margin: 0;
 }
 
 .policy-block p {
   color: var(--text-secondary);
   line-height: 1.9;
-}
-
-.policy-block.highlighted {
-  border-inline-start: 4px solid var(--primary);
-  padding-inline-start: 14px;
 }
 
 .bullet-list {
@@ -203,6 +246,7 @@ h1 {
 .policy-footer {
   display: grid;
   gap: 10px;
+  text-align: right;
 }
 
 .policy-footer a {
@@ -211,23 +255,36 @@ h1 {
   width: fit-content;
 }
 
-.align-start {
-  text-align: start;
-}
-
-.align-center {
-  text-align: center;
-  justify-items: center;
-}
-
 @media (max-width: 768px) {
+  .policy-hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
   .privacy-content,
   .policy-footer {
     padding: 20px;
   }
+}
 
-  .privacy-page {
-    padding-top: 24px;
+@media (max-width: 480px) {
+  .policy-hero {
+    padding: 20px;
+  }
+
+  .hero-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 18px;
+  }
+
+  .block-badge {
+    width: 30px;
+    height: 30px;
   }
 }
 </style>

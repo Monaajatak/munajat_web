@@ -34,17 +34,17 @@ onMounted(() => {
       <img src="/images/Icon_Teal_SVG.svg" alt="شعار مُناجاتك" width="40" height="40" class="logo-light">
       <img src="/images/Icon_White_SVG.svg" alt="شعار مُناجاتك" width="40" height="40" class="logo-dark">
       <div class="brand-text">
-        <span class="brand-kicker">Munajat</span>
+        <span class="brand-kicker">Monajatak</span>
         <strong class="brand-name">مُناجاتك</strong>
       </div>
     </NuxtLink>
 
     <div class="nav-links" :class="{ 'open': isMenuOpen }" id="navLinks">
-      <NuxtLink to="/#hero" @click="closeMenu">الرئيسية</NuxtLink>
-      <NuxtLink to="/#features" @click="closeMenu">المميزات</NuxtLink>
-      <NuxtLink to="/#about" @click="closeMenu">القصة</NuxtLink>
-      <NuxtLink to="/#team" @click="closeMenu">الفريق</NuxtLink>
-      <NuxtLink to="/#faq" @click="closeMenu">الأسئلة</NuxtLink>
+      <NuxtLink :to="{ path: '/', hash: '#hero' }" @click="closeMenu">الرئيسية</NuxtLink>
+      <NuxtLink :to="{ path: '/', hash: '#features' }" @click="closeMenu">المميزات</NuxtLink>
+      <NuxtLink :to="{ path: '/', hash: '#about' }" @click="closeMenu">القصة</NuxtLink>
+      <NuxtLink :to="{ path: '/', hash: '#team' }" @click="closeMenu">الفريق</NuxtLink>
+      <NuxtLink :to="{ path: '/', hash: '#faq' }" @click="closeMenu">الأسئلة</NuxtLink>
 
       <button @click="toggleTheme" class="btn btn-outline theme-toggle nav-theme-toggle" type="button" aria-label="تبديل الوضع">
         <span v-if="theme === 'dark'">الوضع الفاتح</span>
@@ -96,8 +96,7 @@ onMounted(() => {
           </svg>
         </template>
       </button>
-      <a class="btn btn-primary btn-sm" href="https://play.google.com/store/apps/details?id=com.mahmoudmourad.monologue"
-        target="_blank">
+      <a class="btn btn-primary btn-sm" href="/download">
         تحميل التطبيق
       </a>
     </div>

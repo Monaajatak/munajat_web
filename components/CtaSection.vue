@@ -1,4 +1,70 @@
 <!-- CtaSection.vue -->
+<script setup>
+const stores = [
+  {
+    id: 'googleplay',
+    name: 'Google Play',
+    href: 'https://play.google.com/store/apps/details?id=com.mahmoudmourad.monologue',
+    icon: 'https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/google-play/default.svg'
+  },
+  {
+    id: 'appstore',
+    name: 'App Store',
+    href: 'https://apps.apple.com/ua/app/%D9%85%D9%86%D8%A7%D8%AC%D8%A7%D8%AA%D9%83-%D8%B1%D9%81%D9%8A%D9%82-%D8%A7%D9%84%D8%B7%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D9%8A%D9%88%D9%85%D9%8A/id6759576802',
+    icon: 'https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/app-store/default.svg'
+  },
+  {
+    id: 'appgallery',
+    name: 'AppGallery',
+    href: 'https://appgallery.huawei.com/app/C117271909',
+    icon: 'https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/huawei/default.svg'
+  }
+]
+
+const platform = ref('web')
+
+const orderedStores = computed(() => {
+  const preferredId = {
+    ios: 'appstore',
+    android: 'googleplay',
+    huawei: 'appgallery'
+  }[platform.value]
+
+  if (!preferredId) {
+    return stores
+  }
+
+  return [...stores].sort((a, b) => {
+    if (a.id === preferredId) return -1
+    if (b.id === preferredId) return 1
+    return 0
+  })
+})
+
+const detectPlatform = () => {
+  const ua = navigator?.userAgent || ''
+  const uaLower = ua.toLowerCase()
+
+  if (/huawei|honor|hmscore/.test(uaLower)) {
+    return 'huawei'
+  }
+
+  if (/iphone|ipad|ipod/.test(uaLower)) {
+    return 'ios'
+  }
+
+  if (/android/.test(uaLower)) {
+    return 'android'
+  }
+
+  return 'web'
+}
+
+onMounted(() => {
+  platform.value = detectPlatform()
+})
+</script>
+
 <template>
   <section class="cta-wrapper">
     <div class="cta-section reveal" id="download">
@@ -20,53 +86,19 @@
 
         <div class="store-cards">
           <a
-            href="https://play.google.com/store/apps/details?id=com.mahmoudmourad.monologue"
+            v-for="store in orderedStores"
+            :key="store.id"
+            :href="store.href"
             target="_blank"
+            rel="noopener"
             class="store-card"
           >
             <div class="store-card-icon">
-              <img
-                src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/google-play/default.svg"
-                alt="Google Play"
-              />
+              <img :src="store.icon" :alt="store.name" />
             </div>
             <div class="store-card-info">
               <span class="store-card-text">تحميل من</span>
-              <span class="store-card-name">Google Play</span>
-            </div>
-          </a>
-
-          <a
-            href="https://apps.apple.com/ua/app/%D9%85%D9%86%D8%A7%D8%AC%D8%A7%D8%AA%D9%83-%D8%B1%D9%81%D9%8A%D9%82-%D8%A7%D9%84%D8%B7%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D9%8A%D9%88%D9%85%D9%8A/id6759576802"
-            target="_blank"
-            class="store-card"
-          >
-            <div class="store-card-icon">
-              <img
-                src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/app-store/default.svg"
-                alt="App Store"
-              />
-            </div>
-            <div class="store-card-info">
-              <span class="store-card-text">تحميل من</span>
-              <span class="store-card-name">App Store</span>
-            </div>
-          </a>
-
-          <a
-            href="https://appgallery.huawei.com/app/C117271909"
-            target="_blank"
-            class="store-card"
-          >
-            <div class="store-card-icon">
-              <img
-                src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/huawei/default.svg"
-                alt="AppGallery"
-              />
-            </div>
-            <div class="store-card-info">
-              <span class="store-card-text">تحميل من</span>
-              <span class="store-card-name">AppGallery</span>
+              <span class="store-card-name">{{ store.name }}</span>
             </div>
           </a>
         </div>

@@ -16,7 +16,7 @@
         </div>
 
         <div class="cta-actions">
-          <a class="cta-btn primary" href="#download">حمّل التطبيق الآن</a>
+          <a class="cta-btn primary" href="/download">حمّل التطبيق الآن</a>
           <a class="cta-btn secondary" href="#features">اكتشف المميزات</a>
         </div>
 
