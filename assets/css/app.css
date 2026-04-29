@@ -24,13 +24,17 @@
 
     --dark: #0f172a;
     --surface: #ffffff;
-    --surface-2: #f9fafb; /* mobile scaffold bg */
+    --surface-2: #f9fafb;
+    /* mobile scaffold bg */
     --surface-3: #f1f5f9;
-    --body-bg: #f9fafb; /* match mobile light scaffold */
+    --body-bg: #f9fafb;
+    /* match mobile light scaffold */
 
-    --text: #1f2937; /* mobile title color */
+    --text: #1f2937;
+    /* mobile title color */
     --text-secondary: #374151;
-    --muted: #6b7280; /* mobile body/subtitle */
+    --muted: #6b7280;
+    /* mobile body/subtitle */
     --faint: #9ca3af;
 
     /* Borders match mobile group-card borders (teal × 0.14 in light) */
@@ -63,14 +67,22 @@
     --font-quran: 'Amiri', 'Traditional Arabic', serif;
 
     /* Feature pastel palette — must use only these for feature accents */
-    --pastel-quran: #fff3e0;       /* peach */
-    --pastel-azkar: #e0f2fe;       /* light sky */
-    --pastel-tasbih: #dcfce7;      /* light green */
-    --pastel-names: #f3e8ff;       /* light purple */
-    --pastel-hadith: #ccfbf1;      /* very light teal */
-    --pastel-qibla: #fef3c7;       /* light yellow */
-    --pastel-dua: #fae8ff;         /* light pink-purple */
-    --pastel-neutral: #f1f5f9;     /* slate-50 for dark mode/utility */
+    --pastel-quran: #fff3e0;
+    /* peach */
+    --pastel-azkar: #e0f2fe;
+    /* light sky */
+    --pastel-tasbih: #dcfce7;
+    /* light green */
+    --pastel-names: #f3e8ff;
+    /* light purple */
+    --pastel-hadith: #ccfbf1;
+    /* very light teal */
+    --pastel-qibla: #fef3c7;
+    /* light yellow */
+    --pastel-dua: #fae8ff;
+    /* light pink-purple */
+    --pastel-neutral: #f1f5f9;
+    /* slate-50 for dark mode/utility */
 
     --pastel-quran-fg: #c2640f;
     --pastel-azkar-fg: #0284c7;
@@ -94,10 +106,14 @@
     --text-secondary: rgba(255, 255, 255, 0.78);
     --muted: rgba(255, 255, 255, 0.54);
     --faint: rgba(255, 255, 255, 0.30);
-    --body-bg: #0f172a;       /* mobile dark scaffold */
-    --surface: #1e293b;       /* mobile dark surface */
-    --surface-2: #111827;     /* deeper */
-    --surface-3: #1f2937;     /* elevated */
+    --body-bg: #0f172a;
+    /* mobile dark scaffold */
+    --surface: #1e293b;
+    /* mobile dark surface */
+    --surface-2: #111827;
+    /* deeper */
+    --surface-3: #1f2937;
+    /* elevated */
     --border: 1px solid rgba(255, 255, 255, 0.10);
     --border-color: rgba(255, 255, 255, 0.10);
     --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.20);
@@ -198,11 +214,21 @@
 }
 
 /* --- Theme-based Logo Visibility --- */
-.logo-light { display: block; }
-.logo-dark { display: none; }
+.logo-light {
+    display: block;
+}
 
-[data-theme="dark"] .logo-light { display: none; }
-[data-theme="dark"] .logo-dark { display: block; }
+.logo-dark {
+    display: none;
+}
+
+[data-theme="dark"] .logo-light {
+    display: none;
+}
+
+[data-theme="dark"] .logo-dark {
+    display: block;
+}
 
 /* --- Reset --- */
 *,
@@ -490,7 +516,8 @@ h6 {
     padding: 0 !important;
     border-radius: 50%;
     font-size: 18px;
-    flex-shrink: 0; /* Prevent elliptical shape */
+    flex-shrink: 0;
+    /* Prevent elliptical shape */
 }
 
 /* --- Cards --- */
@@ -1003,9 +1030,17 @@ h6 {
 }
 
 @keyframes countPulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 .azkar-text.completed-pulse {
@@ -1013,9 +1048,20 @@ h6 {
 }
 
 @keyframes textCelebrate {
-    0% { transform: scale(1); color: var(--text); }
-    30% { transform: scale(1.05); color: var(--primary); }
-    100% { transform: scale(1); color: var(--text); }
+    0% {
+        transform: scale(1);
+        color: var(--text);
+    }
+
+    30% {
+        transform: scale(1.05);
+        color: var(--primary);
+    }
+
+    100% {
+        transform: scale(1);
+        color: var(--text);
+    }
 }
 
 /* --- Continue Reading Strip --- */
@@ -1129,9 +1175,18 @@ h6 {
 }
 
 @keyframes trustPulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); color: var(--primary); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+        color: var(--primary);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 @media (max-width: 991px) {
@@ -1144,6 +1199,7 @@ h6 {
     .trust-bar {
         grid-template-columns: 1fr;
     }
+
     .trust-item {
         padding: 20px;
     }
@@ -1753,7 +1809,7 @@ h6 {
         max-width: 960px;
     }
 
-    .hero-grid, 
+    .hero-grid,
     .about-grid {
         grid-template-columns: 1fr;
         text-align: center;
@@ -1836,15 +1892,18 @@ h6 {
         height: 42px;
         align-items: center;
         justify-content: center;
-        background: rgba(var(--primary-rgb), 0.05); /* Same as btn-icon */
-        border-radius: 50%; /* Circle for consistency */
+        background: rgba(var(--primary-rgb), 0.05);
+        /* Same as btn-icon */
+        border-radius: 50%;
+        /* Circle for consistency */
         border: var(--border);
         flex-shrink: 0;
     }
 
     .nav-actions {
         gap: 12px;
-        flex-direction: row-reverse; /* Ensure actions are ordered nicely */
+        flex-direction: row-reverse;
+        /* Ensure actions are ordered nicely */
     }
 
     .nav-actions .btn:not(.btn-icon) {
@@ -1917,7 +1976,8 @@ h6 {
     }
 
     .btn {
-        width: 100%; /* Stacking buttons on small mobile */
+        width: 100%;
+        /* Stacking buttons on small mobile */
         padding: 14px 24px;
     }
 
@@ -1994,6 +2054,7 @@ h6 {
 }
 
 @media (pointer: coarse) {
+
     .cursor-dot,
     .cursor-outline {
         display: none !important;
@@ -2005,7 +2066,7 @@ h6 {
     .hero-content h1 {
         font-size: 28px;
     }
-    
+
     .hero-logo-tagline {
         font-size: 11px;
         padding: 6px 16px;
