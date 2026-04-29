@@ -34,7 +34,7 @@ onMounted(() => {
       <img src="/images/Icon_Teal_SVG.svg" alt="شعار مُناجاتك" width="40" height="40" class="logo-light">
       <img src="/images/Icon_White_SVG.svg" alt="شعار مُناجاتك" width="40" height="40" class="logo-dark">
       <div class="brand-text">
-        <span class="brand-kicker">Munajat</span>
+        <span class="brand-kicker">Monajatak</span>
         <strong class="brand-name">مُناجاتك</strong>
       </div>
     </NuxtLink>
