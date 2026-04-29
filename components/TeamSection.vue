@@ -168,4 +168,13 @@
     .team-section { padding: 60px 0; }
     .member-card { padding: 30px 20px; }
 }
+
+@media (max-width: 480px) {
+  .team-section { padding: 48px 0; }
+  .section-header { margin-bottom: 40px; }
+  .team-grid { grid-template-columns: 1fr; }
+  .member-info h3 { font-size: 20px; }
+  .member-bio { font-size: 14px; }
+  .member-avatar { width: 88px; height: 88px; }
+}
 </style>

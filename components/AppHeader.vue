@@ -45,10 +45,15 @@ onMounted(() => {
       <NuxtLink to="/#about" @click="closeMenu">القصة</NuxtLink>
       <NuxtLink to="/#team" @click="closeMenu">الفريق</NuxtLink>
       <NuxtLink to="/#faq" @click="closeMenu">الأسئلة</NuxtLink>
+
+      <button @click="toggleTheme" class="btn btn-outline theme-toggle nav-theme-toggle" type="button" aria-label="تبديل الوضع">
+        <span v-if="theme === 'dark'">الوضع الفاتح</span>
+        <span v-else>الوضع الداكن</span>
+      </button>
     </div>
 
     <div class="nav-actions">
-      <button @click="toggleTheme" class="btn btn-icon btn-outline" type="button" aria-label="تبديل الوضع">
+      <button @click="toggleTheme" class="btn btn-icon btn-outline theme-toggle" type="button" aria-label="تبديل الوضع">
         <template v-if="theme === 'dark'">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"

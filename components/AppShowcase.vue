@@ -84,9 +84,10 @@ const setSlide = (index) => {
 .mockup-display {
     position: relative;
     width: 100%;
-    height: 680px;
+  height: 660px;
     display: flex;
     justify-content: center;
+  margin-bottom: 16px;
 }
 
 .mockup-slide {
@@ -212,11 +213,12 @@ const setSlide = (index) => {
 
 @media (max-width: 768px) {
     .mockup-display {
-        height: 540px;
+    height: 560px;
+    margin-bottom: 12px;
     }
     .phone-device {
-        width: 240px;
-        height: 480px;
+    width: 220px;
+    height: 440px;
         padding: 8px;
         border-radius: 32px;
     }
@@ -240,15 +242,27 @@ const setSlide = (index) => {
 
 @media (max-width: 480px) {
     .mockup-display {
-        height: 480px;
+    height: 480px;
+    margin-bottom: 10px;
     }
     .phone-device {
-        width: 200px;
-        height: 400px;
+    width: 190px;
+    height: 380px;
     }
     .mockup-arrow {
         width: 36px;
         height: 36px;
     }
+}
+
+@media (max-width: 360px) {
+  .mockup-display {
+    height: 440px;
+    margin-bottom: 8px;
+  }
+  .phone-device {
+    width: 170px;
+    height: 340px;
+  }
 }
 </style>

@@ -1,8 +1,14 @@
 <script setup>
 const cursorDot = ref(null)
 const cursorOutline = ref(null)
+const isPointerFine = ref(true)
 
 onMounted(() => {
+  const pointerQuery = window.matchMedia?.('(pointer: fine)')
+  isPointerFine.value = pointerQuery?.matches ?? true
+  if (!isPointerFine.value) {
+    return
+  }
   // --- Custom Cursor Logic ---
   window.addEventListener('mousemove', (e) => {
     const posX = e.clientX
@@ -62,8 +68,8 @@ onMounted(() => {
     <AppFooter />
 
     <!-- Custom Cursor -->
-    <div class="cursor-dot" ref="cursorDot"></div>
-    <div class="cursor-outline" ref="cursorOutline"></div>
+    <div v-if="isPointerFine" class="cursor-dot" ref="cursorDot"></div>
+    <div v-if="isPointerFine" class="cursor-outline" ref="cursorOutline"></div>
 
   </div>
 </template>

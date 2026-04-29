@@ -6,7 +6,9 @@
 /* --- Fonts --- */
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Amiri:wght@400;700&display=swap');
 
-/* --- CSS Variables (Light — Default) --- */
+/* --- CSS Variables (Light — Default) ---
+   Aligned with the mobile Design System (Monaajatak):
+   Teal identity, soft pastels, refined off-white surfaces. */
 :root {
     --primary: #00a2b5;
     --primary-2: #00d1e3;
@@ -15,31 +17,42 @@
     --accent: #00d1e3;
     --brand-orange: #ff7e3d;
 
+    /* Hero teal gradient stops (matches mobile Prayer/Streak hero card) */
+    --teal-deep: #0f766e;
+    --teal-mid: #0d9488;
+    --teal-light: #14b8a6;
+
     --dark: #0f172a;
     --surface: #ffffff;
-    --surface-2: #f8fafc;
+    --surface-2: #f9fafb; /* mobile scaffold bg */
     --surface-3: #f1f5f9;
-    --body-bg: #f8fafc; /* Beautiful off-white */
+    --body-bg: #f9fafb; /* match mobile light scaffold */
 
-    --text: #0f172a;
-    --text-secondary: #334155;
-    --muted: #64748b;
-    --faint: #94a3b8;
+    --text: #1f2937; /* mobile title color */
+    --text-secondary: #374151;
+    --muted: #6b7280; /* mobile body/subtitle */
+    --faint: #9ca3af;
 
-    --border: 1px solid rgba(0, 162, 181, 0.08); /* Refined themed border */
-    --border-color: rgba(0, 162, 181, 0.08);
-    --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.04);
-    --shadow-sm: 0 4px 12px rgba(var(--primary-rgb), 0.04);
-    --shadow: 0 15px 35px rgba(var(--primary-rgb), 0.08);
-    --shadow-lg: 0 25px 50px rgba(var(--primary-rgb), 0.12);
+    /* Borders match mobile group-card borders (teal × 0.14 in light) */
+    --border: 1px solid rgba(0, 162, 181, 0.14);
+    --border-color: rgba(0, 162, 181, 0.14);
 
-    --radius: 24px;
+    /* Shadows match mobile slate-tinted soft shadows */
+    --shadow-xs: 0 1px 2px rgba(148, 163, 184, 0.06);
+    --shadow-sm: 0 2px 6px rgba(148, 163, 184, 0.08);
+    --shadow: 0 6px 16px rgba(148, 163, 184, 0.10);
+    --shadow-lg: 0 18px 40px rgba(148, 163, 184, 0.14);
+
+    /* Radius scale mirrors mobile (12 / 14 / 16 / 20 / 24) */
+    --radius: 20px;
+    --radius-lg: 24px;
     --radius-sm: 16px;
     --radius-xs: 12px;
+    --radius-tile: 14px;
     --radius-pill: 999px;
 
     --nav-bg: rgba(255, 255, 255, 0.85);
-    --card-bg: #ffffff; /* Solid white for cards on off-white bg */
+    --card-bg: #ffffff;
     --overlay: rgba(15, 23, 42, 0.5);
 
     --transition: 0.3s cubic-bezier(0.2, 0, 0, 1);
@@ -49,31 +62,69 @@
     --font-body: 'Cairo', system-ui, -apple-system, sans-serif;
     --font-quran: 'Amiri', 'Traditional Arabic', serif;
 
-    /* Section Backgrounds */
-    --cta-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    /* Feature pastel palette — must use only these for feature accents */
+    --pastel-quran: #fff3e0;       /* peach */
+    --pastel-azkar: #e0f2fe;       /* light sky */
+    --pastel-tasbih: #dcfce7;      /* light green */
+    --pastel-names: #f3e8ff;       /* light purple */
+    --pastel-hadith: #ccfbf1;      /* very light teal */
+    --pastel-qibla: #fef3c7;       /* light yellow */
+    --pastel-dua: #fae8ff;         /* light pink-purple */
+    --pastel-neutral: #f1f5f9;     /* slate-50 for dark mode/utility */
+
+    --pastel-quran-fg: #c2640f;
+    --pastel-azkar-fg: #0284c7;
+    --pastel-tasbih-fg: #059669;
+    --pastel-names-fg: #7c3aed;
+    --pastel-hadith-fg: #0d9488;
+    --pastel-qibla-fg: #b45309;
+    --pastel-dua-fg: #a21caf;
+
+    /* CTA now uses the mobile hero teal gradient (Deep → Light Teal) */
+    --cta-gradient: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal-light) 100%);
     --cta-text: #ffffff;
+
+    /* Hadith soft tint (light) — used for vision/story cards */
+    --hadith-soft: linear-gradient(135deg, #f0fdfa 0%, #ffffff 100%);
 }
 
-/* --- Dark Theme --- */
+/* --- Dark Theme — exact mobile dark surface palette --- */
 [data-theme="dark"] {
-    --text: #f1f5f9;
-    --text-secondary: #cbd5e1;
-    --muted: #94a3b8;
-    --faint: #64748b;
-    --body-bg: #0b1220;
-    --surface: #1e293b;
-    --surface-2: #162032;
-    --surface-3: #0f172a;
-    --border: 1px solid rgba(255, 255, 255, 0.08);
-    --border-color: rgba(255, 255, 255, 0.08);
-    --shadow: 0 20px 48px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 32px 64px rgba(0, 0, 0, 0.4);
+    --text: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.78);
+    --muted: rgba(255, 255, 255, 0.54);
+    --faint: rgba(255, 255, 255, 0.30);
+    --body-bg: #0f172a;       /* mobile dark scaffold */
+    --surface: #1e293b;       /* mobile dark surface */
+    --surface-2: #111827;     /* deeper */
+    --surface-3: #1f2937;     /* elevated */
+    --border: 1px solid rgba(255, 255, 255, 0.10);
+    --border-color: rgba(255, 255, 255, 0.10);
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.20);
+    --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.20);
+    --shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    --shadow-lg: 0 18px 40px rgba(0, 0, 0, 0.40);
     --nav-bg: rgba(15, 23, 42, 0.85);
-    --card-bg: rgba(30, 41, 59, 0.8);
+    --card-bg: #1e293b;
     --overlay: rgba(0, 0, 0, 0.6);
     --brand-orange: #ff9d6a;
 
-    --cta-gradient: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+    /* Dark hero gradient stops (slate dark) */
+    --teal-deep: #1e293b;
+    --teal-light: #0f172a;
+    --cta-gradient: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+
+    /* Pastels are flattened in dark per mobile rule */
+    --pastel-quran: #1f2937;
+    --pastel-azkar: #1f2937;
+    --pastel-tasbih: #1f2937;
+    --pastel-names: #1f2937;
+    --pastel-hadith: #1f2937;
+    --pastel-qibla: #1f2937;
+    --pastel-dua: #1f2937;
+    --pastel-neutral: #1f2937;
+
+    --hadith-soft: linear-gradient(135deg, #134e4a 0%, #0f172a 100%);
 }
 
 /* --- Store Download Cards --- */
@@ -349,6 +400,10 @@ h6 {
     color: var(--muted);
     transition: all var(--transition-fast);
     white-space: nowrap;
+}
+
+.nav-links .nav-theme-toggle {
+    display: none;
 }
 
 .nav-links a:hover,
@@ -1431,14 +1486,6 @@ h6 {
     color: #ffffff !important;
 }
 
-.cta-section .store-card img:not([alt="AppGallery"]) {
-    filter: brightness(0) invert(1) !important;
-}
-
-/* Specific styling for the local Huawei asset if needed */
-.cta-section .store-card img[alt="AppGallery"] {
-    filter: none !important;
-}
 
 .cta-section::before {
     content: '';
@@ -1735,7 +1782,7 @@ h6 {
     }
 
     .section {
-        padding: 60px 0;
+        padding: 56px 0;
     }
 
     .section-head {
@@ -1804,6 +1851,20 @@ h6 {
         display: none;
     }
 
+    .nav-actions .theme-toggle {
+        display: none;
+    }
+
+    .nav-links .nav-theme-toggle {
+        display: inline-flex;
+        width: 100%;
+        justify-content: center;
+        padding: 12px 16px;
+        border-radius: var(--radius-pill);
+        font-size: 14px;
+        font-weight: 700;
+    }
+
     /* Grids */
     .features-grid {
         grid-template-columns: 1fr;
@@ -1834,11 +1895,11 @@ h6 {
 /* Mobile Phones (Portrait) */
 @media (max-width: 480px) {
     .container {
-        padding: 0 20px;
+        padding: 0 16px;
     }
 
     .section {
-        padding: 48px 0;
+        padding: 44px 0;
     }
 
     .section-head h2 {
@@ -1894,25 +1955,48 @@ h6 {
         color: var(--primary-2);
     }
 
-    /* Hide kicker on small mobile to save space */
-    @media (max-width: 400px) {
-        .brand-kicker {
-            display: none;
-        }
-        .nav {
-            padding: 10px 16px;
-        }
-        .nav-actions {
-            gap: 8px;
-        }
-    }
-
     .store-badge {
         height: 40px;
     }
 
     .badge-group {
         gap: 10px;
+    }
+}
+
+/* Compact navigation for very small phones */
+@media (max-width: 400px) {
+    .brand-kicker {
+        display: none;
+    }
+
+    .brand-name {
+        font-size: 14px;
+    }
+
+    .brand img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .nav {
+        padding: 10px 14px;
+    }
+
+    .nav-actions {
+        gap: 6px;
+    }
+
+    .menu-toggle {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+@media (pointer: coarse) {
+    .cursor-dot,
+    .cursor-outline {
+        display: none !important;
     }
 }
 
@@ -2003,60 +2087,52 @@ h6 {
     margin: 0;
 }
 
-/* Icon Variants */
+/* Icon variants — match the mobile feature pastel palette.
+   Each feature has a fixed pastel + accent foreground. */
 .quran-icon {
-    background: rgba(16, 185, 129, 0.1);
-    color: #10b981;
+    background: var(--pastel-quran);
+    color: var(--pastel-quran-fg);
 }
 
 .azkar-icon {
-    background: rgba(245, 158, 11, 0.1);
-    color: #f59e0b;
+    background: var(--pastel-azkar);
+    color: var(--pastel-azkar-fg);
 }
 
 .prayer-icon {
-    background: rgba(59, 130, 246, 0.1);
-    color: #3b82f6;
+    background: var(--pastel-hadith);
+    color: var(--pastel-hadith-fg);
 }
 
 .qibla-icon {
-    background: rgba(99, 102, 241, 0.1);
-    color: #6366f1;
+    background: var(--pastel-qibla);
+    color: var(--pastel-qibla-fg);
 }
 
 .dua-icon {
-    background: rgba(20, 184, 166, 0.1);
-    color: #14b8a6;
+    background: var(--pastel-dua);
+    color: var(--pastel-dua-fg);
 }
 
 .notify-icon {
-    background: rgba(139, 92, 246, 0.1);
-    color: #8b5cf6;
+    background: var(--pastel-names);
+    color: var(--pastel-names-fg);
 }
 
-/* Dark mode adjustments for icons to pop more */
-[data-theme="dark"] .quran-icon {
-    background: rgba(16, 185, 129, 0.15);
+.tasbih-icon {
+    background: var(--pastel-tasbih);
+    color: var(--pastel-tasbih-fg);
 }
 
-[data-theme="dark"] .azkar-icon {
-    background: rgba(245, 158, 11, 0.15);
-}
-
-[data-theme="dark"] .prayer-icon {
-    background: rgba(59, 130, 246, 0.15);
-}
-
-[data-theme="dark"] .qibla-icon {
-    background: rgba(99, 102, 241, 0.15);
-}
-
-[data-theme="dark"] .dua-icon {
-    background: rgba(20, 184, 166, 0.15);
-}
-
-[data-theme="dark"] .notify-icon {
-    background: rgba(139, 92, 246, 0.15);
+/* In dark mode the pastel container collapses to slate — accent stays */
+[data-theme="dark"] .quran-icon,
+[data-theme="dark"] .azkar-icon,
+[data-theme="dark"] .prayer-icon,
+[data-theme="dark"] .qibla-icon,
+[data-theme="dark"] .dua-icon,
+[data-theme="dark"] .notify-icon,
+[data-theme="dark"] .tasbih-icon {
+    background: #1f2937;
 }
 
 
